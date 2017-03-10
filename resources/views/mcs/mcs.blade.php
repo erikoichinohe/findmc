@@ -1,6 +1,6 @@
 @if ($mcs)
     <div class="row">
-        @foreach ($mcs as $mc)
+        @foreach ($mcs as $key => $mc)
         
             <div class="col-md-3 portfolio-item">
                 <a href="#">
@@ -11,13 +11,14 @@
                     @endif
                 </a>
                 <h3>
+                    <b>{{ $key+1 }}位</b>
                     {!! link_to_route('mcs.show', $mc->name, ['id' => $mc->id]) !!}
                 </h3>
                 <p>（得意分野）</p>
                 <p class="bunya">{!! nl2br(e( $mc->bunya1 )) !!}</p>
                 @if (isset($mc->count))
                     <div class="ranking">
-                        <p><span class="badge">{{ $mc->count }}</span>人にお気に入りされています</p>
+                        <p><span class="badge">{{ $mc->count }}人からお気に入りされています</span></p>
                     </div>
                 @endif
             </div>

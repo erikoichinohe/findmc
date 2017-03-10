@@ -1,17 +1,50 @@
 @extends('layouts.app')
 
-@section('cover')
-    <div class="cover">
-        <div class="cover-inner">
-            <div class="cover-contents">
-                <h1>MCがいればそのイベントはもっと良くなる</h1>
-                <a href="{{ route('mcs.index') }}" class="btn btn-success btn-lg">MCをさがす</a>
-            </div>
-        </div>
-    </div>
-@endsection
 
 @section('content')
+
+<div id="myCarousel" class="carousel slide"　data-ride="carousel">
+    
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ol>
+
+    <!-- Wrapper for Slides -->
+    <div class="carousel-inner">
+        <div class="item active">
+            <!-- Set the first background image using inline CSS below. -->
+            <img src="/images/coverphoto01.jpg" alt="">
+            <div class="carousel-caption">
+                <h2>MCがいればそのイベントはもっと良くなる</h2>
+                <a href="{{ route('mcs.index') }}" class="btn btn-success btn-lg">MCをさがす <span class="glyphicon glyphicon-search"></span></a>　
+                <a href="{{ route('mclogin.get') }}" class="btn btn-success btn-lg">MCをする <span class="glyphicon glyphicon-volume-up"></a>
+            </div>
+        </div>
+        
+        <div class="item">
+            <!-- Set the second background image using inline CSS below. -->
+            <img src="/images/coverphoto02.jpg" alt="">
+            <div class="carousel-caption">
+                <h2>経験豊富なMCとあなたをマッチング</h2>
+                <a href="{{ route('mcs.index') }}" class="btn btn-success btn-lg">MCをさがす <span class="glyphicon glyphicon-search"></span></a> 
+                <a href="{{ route('mclogin.get') }}" class="btn btn-success btn-lg">MCをする <span class="glyphicon glyphicon-volume-up"></a>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+        <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">
+        <span class="icon-next"></span>
+    </a>
+
+</div>
+
 <div class="row">
     <div class="col-lg-12">
         <h1 class="page-header">MC・司会者をお探しなら「FindMC」</br>
@@ -52,10 +85,10 @@
 </div>
 
 <div class="row">
-    <h2 class="page-header">登録MC</h2>
+    <h2 class="page-header">MCランキング</h2>
 </div>
 
 @include('mcs.mcs', ['mcs' => $mcs])
-{!! $mcs->render() !!}
+
 
 @endsection

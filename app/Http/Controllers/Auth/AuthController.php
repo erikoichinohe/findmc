@@ -52,6 +52,12 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
+            'postalcode' =>'required|max:7',
+            'prefecture' =>'required|max:255',
+            'address1' => 'required|max:255',
+            'address2' => 'required|max:255',
+            'address3' => 'max:255',
+            'phone' =>'required|max:255',
         ]);
     }
 

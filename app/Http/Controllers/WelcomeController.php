@@ -17,11 +17,11 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        $query = Mc::query();
-        //全件取得
-        //$mcs = $query->get();
-        //ページネーション
-        $mcs = $query->orderBy('id','desc')->paginate(10);
+        $mcs = [];
+        if (Mc::exists()) {
+            $mcs = \DB::table('favorites')->join('mcs', 'favorites.mc_id', '=', 'mcs.id')->select('mcs.*', \DB::raw('COUNT(*) as count'))->groupBy('mcs.id')->orderBy('count', 'DESC')->take(12)->get();
+        }
+        
         return view('welcome')->with('mcs',$mcs);
     }
 

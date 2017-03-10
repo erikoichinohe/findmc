@@ -15,7 +15,7 @@ class RankingController extends Controller
     {
         $mcs = [];
         if (Mc::exists()) {
-            $mcs = \DB::table('favorites')->join('mcs', 'favorites.mc_id', '=', 'mcs.id')->select('mcs.*', \DB::raw('COUNT(*) as count'))->groupBy('mcs.id')->orderBy('count', 'DESC')->take(10)->get();
+            $mcs = \DB::table('favorites')->join('mcs', 'favorites.mc_id', '=', 'mcs.id')->select('mcs.*', \DB::raw('COUNT(*) as count'))->groupBy('mcs.id')->orderBy('count', 'DESC')->take(12)->get();
         }
 
         return view('ranking.like', [

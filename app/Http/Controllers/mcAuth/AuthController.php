@@ -57,6 +57,16 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
+            'postalcode' =>'required|max:7',
+            'prefecture' =>'required|max:255',
+            'address1' => 'required|max:255',
+            'address2' => 'required|max:255',
+            'address3' => 'max:255',
+            'phone' =>'required|max:255',
+            'pr' => 'required',
+            'keireki' => 'required',
+            'bunya1' => 'required',
+            'price' => 'required',
         ]);
     }
 
@@ -81,8 +91,7 @@ class AuthController extends Controller
             'pr' => $data['pr'],
             'keireki' => $data['keireki'],
             'bunya1' => $data['bunya1'],
-            'bunya2' => $data['bunya2'],
-            'bunya3' => $data['bunya3'],
+
             'price' => $data['price'],
         ]);
     }
@@ -147,8 +156,9 @@ class AuthController extends Controller
         }
 
         Auth::mc()->login($this->create($request->all()));
-
-        return redirect($this->redirectPath());
+        
+        $id = Auth::mc()->get()->id;
+        return redirect()->route('mypage.show', [$id] );
     }
 
 }

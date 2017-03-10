@@ -53,7 +53,7 @@ class PhotosController extends Controller
              
         } else {
             return redirect()
-                >back()
+                ->back()
                 ->withInput()
                 ->withErrors(['file' => '画像がアップロードされていないか不正なデータです。']);
         }
