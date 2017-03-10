@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Mc;
 
 class WelcomeController extends Controller
 {
@@ -16,7 +17,12 @@ class WelcomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $query = Mc::query();
+        //全件取得
+        //$mcs = $query->get();
+        //ページネーション
+        $mcs = $query->orderBy('id','desc')->paginate(10);
+        return view('welcome')->with('mcs',$mcs);
     }
 
     /**

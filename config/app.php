@@ -114,7 +114,7 @@ return [
          * Laravel Framework Service Providers...
          */
         Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
-        Illuminate\Auth\AuthServiceProvider::class,
+        Kbwebs\MultiAuth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
         Illuminate\Cache\CacheServiceProvider::class,
@@ -131,7 +131,7 @@ return [
         Illuminate\Pipeline\PipelineServiceProvider::class,
         Illuminate\Queue\QueueServiceProvider::class,
         Illuminate\Redis\RedisServiceProvider::class,
-        Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
+        Kbwebs\MultiAuth\PasswordResets\PasswordResetServiceProvider::class,
         Illuminate\Session\SessionServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
@@ -144,6 +144,12 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        
+        Collective\Html\HtmlServiceProvider::class,
+        
+        Thomaswelton\LaravelGravatar\LaravelGravatarServiceProvider::class,
+        
+        Intervention\Image\ImageServiceProvider::class,
 
     ],
 
@@ -192,6 +198,10 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+        'Form'      => Collective\Html\FormFacade::class,
+        'Html'      => Collective\Html\HtmlFacade::class,
+        'Gravatar'  => Thomaswelton\LaravelGravatar\Facades\Gravatar::class,
+        'Image'     => Intervention\Image\Facades\Image::class,
 
     ],
 

@@ -2,7 +2,7 @@
 
 /* body */
 body {
-    background: #f2f2f2;
+    background: #fbfbfb;
 }
 footer {
     margin-top: 40px;
@@ -20,7 +20,7 @@ footer {
 /* cover */
 .cover {
     margin-top: -20px;
-    margin-top: 20px;
+
     width: 100%;
     height: 300px;
     background: url("/images/coverphoto.jpg") center center no-repeat;
@@ -39,7 +39,7 @@ footer {
 }
 .cover .cover-inner .cover-contents h1 {
     margin: 0 0 20px 0;
-    color: #fff;
+    color: #424242;
     font-weight: bold;
     letter-spacing: 0.15em;
 }
@@ -47,3 +47,12 @@ footer {
     background-color: #ed486f;
     border-color: #ed486f;
 }
+
+p.bunya {
+    /* 文の行数を2行に保ち、最後に ... を追加するスタイル */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+}
+
